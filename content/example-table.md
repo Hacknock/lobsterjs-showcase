@@ -42,23 +42,23 @@ Use `:---`, `:---:`, and `---:` in the separator row:
 
 ### Horizontal merge
 
-Write `\|` where you want to extend a cell to the right:
+Place `\|` after a cell to extend it one column to the right:
 
 ```markdown
-| Feature     | lobster.js | Standard MD \|   |
-| :---------- | :--------: | :--------------: |
-| Tables      | ✓          | ✓                |
-| Cell merge  | ✓          | ✗                |
-| Warp blocks | ✓          | ✗                |
+| Feature     | lobster.js | Standard MD |
+| :---------- | :--------: | :---------: |
+| Tables      | ✓          | ✓           |
+| Cell merge  | ✓ only     | \|
+| Warp blocks | ✓ only     | \|
 ```
 
 **Result:**
 
-| Feature     | lobster.js | Standard MD \|   |
-| :---------- | :--------: | :--------------: |
-| Tables      | ✓          | ✓                |
-| Cell merge  | ✓          | ✗                |
-| Warp blocks | ✓          | ✗                |
+| Feature     | lobster.js | Standard MD |
+| :---------- | :--------: | :---------: |
+| Tables      | ✓          | ✓           |
+| Cell merge  | ✓ only     | \|
+| Warp blocks | ✓ only     | \|
 
 ### Vertical merge
 
@@ -85,20 +85,20 @@ Write `\---` in a cell to merge it with the cell above:
 ### Combined merging
 
 ```markdown
-| Q1 \|   | Q2      |
-| :-----  | :------ |
-| Jan     | Apr     |
-| \---    | May     |
-| Mar     | Jun     |
+| Region  | Q1   | Q2   |
+| :------ | :--- | :--- |
+| Europe  | 120  | 150  |
+| \---    | 130  | \|
+| Asia    | 200  | 180  |
 ```
 
 **Result:**
 
-| Q1 \|  | Q2  |
-| :----- | :-- |
-| Jan    | Apr |
-| \---   | May |
-| Mar    | Jun |
+| Region  | Q1   | Q2   |
+| :------ | :--- | :--- |
+| Europe  | 120  | 150  |
+| \---    | 130  | \|
+| Asia    | 200  | 180  |
 
 ## Silent table (layout grid)
 
