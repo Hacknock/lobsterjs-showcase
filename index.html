@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lobster.js Showcase</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-logo" href="?page=intro">lobster.js</a>
+        <span class="site-tagline">Extended Markdown · Browser-native · CSS-first</span>
+      </div>
+    </header>
+
+    <div class="site-body">
+      <nav id="sidebar" class="site-sidebar"></nav>
+      <main id="main" class="site-main"></main>
+    </div>
+
+    <footer class="site-footer">
+      <p>Built with <a href="https://github.com/Hacknock/lobsterjs">lobster.js</a> · <a href="https://github.com/Hacknock/lobsterjs-showcase">Source</a></p>
+    </footer>
+
+    <script type="module">
+      import { loadMarkdown } from 'https://hacknock.github.io/lobsterjs/lobster.js';
+
+      const sidebar = document.getElementById('sidebar');
+      const main    = document.getElementById('main');
+
+      // Sidebar: load once
+      loadMarkdown('./nav.md', sidebar);
+
+      // Load the page specified by ?page=xxx
+      function loadPage(pageParam) {
+        const srcs = pageParam.split(',').map(p => `./content/${p}.md`);
+        loadMarkdown(srcs.length === 1 ? srcs[0] : srcs, main).then(() => {
+          updateActiveNav(pageParam);
+          updateTitle(pageParam);
+          window.scrollTo(0, 0);
+        });
+      }
+
+      // Highlight the current nav link
+      function updateActiveNav(pageParam) {
+        sidebar.querySelectorAll('a').forEach(a => {
+          const p = new URL(a.href, location.href).searchParams.get('page');
+          a.classList.toggle('nav-active', p === pageParam);
+        });
+      }
+
+      // Update <title>
+      function updateTitle(pageParam) {
+        const first = pageParam.split(',')[0];
+        const label = sidebar.querySelector(`a[href*="page=${first}"]`)?.textContent?.trim();
+        document.title = label ? `${label} · lobster.js Showcase` : 'lobster.js Showcase';
+      }
+
+      const initialPage = new URLSearchParams(location.search).get('page') ?? 'intro';
+      loadPage(initialPage);
+
+      // Event delegation for nav links
+      document.addEventListener('click', e => {
+        const a = e.target.closest('a[href*="?page="]');
+        if (!a) return;
+        e.preventDefault();
+        const page = new URL(a.href, location.href).searchParams.get('page');
+        history.pushState({ page }, '', `?page=${page}`);
+        loadPage(page);
+      });
+
+      // Browser back / forward
+      window.addEventListener('popstate', e => {
+        loadPage(e.state?.page ?? 'intro');
+      });
+    </script>
+  </body>
+</html>
