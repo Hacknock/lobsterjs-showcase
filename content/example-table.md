@@ -42,16 +42,32 @@ Use `:---`, `:---:`, and `---:` in the separator row:
 
 ### Horizontal merge
 
-Place `\|` after a cell to extend it one column to the right. Works in both **body rows** and **header rows**.
+Append `\|` to a cell's content to extend it one column to the right. Works in **header rows** and **body rows** alike. The slot immediately after the `\|` cell is consumed by the merge:
 
-**Body rows:**
+```markdown
+| Product | EMEA \|  | APAC \| |
+| :------ | ---:  | ---: | ---:  | ---: |
+|         | Q1    | Q2   | Q1    | Q2   |
+| Alpha   | 100   | 120  | 80    | 90   |
+| Beta    | 95    | 115  | 75    | 85   |
+```
+
+**Result:**
+
+| Product | EMEA \|  | APAC \| |
+| :------ | ---:  | ---: | ---:  | ---: |
+|         | Q1    | Q2   | Q1    | Q2   |
+| Alpha   | 100   | 120  | 80    | 90   |
+| Beta    | 95    | 115  | 75    | 85   |
+
+Body-row-only example:
 
 ```markdown
 | Feature     | lobster.js | Standard MD |
 | :---------- | :--------: | :---------: |
 | Tables      | ✓          | ✓           |
-| Cell merge  | ✓ only     | \|
-| Warp blocks | ✓ only     | \|
+| Cell merge  | ✓ only \|  |
+| Warp blocks | ✓ only \|  |
 ```
 
 **Result:**
@@ -59,28 +75,8 @@ Place `\|` after a cell to extend it one column to the right. Works in both **bo
 | Feature     | lobster.js | Standard MD |
 | :---------- | :--------: | :---------: |
 | Tables      | ✓          | ✓           |
-| Cell merge  | ✓ only     | \|
-| Warp blocks | ✓ only     | \|
-
-**Header rows:**
-
-```markdown
-| Product | EMEA | \| | APAC | \|
-| :------ | ---: | ---: | ---: | ---: |
-|         | Q1   | Q2   | Q1   | Q2   |
-| Alpha   | 100  | 120  | 80   | 90   |
-| Beta    | 95   | 115  | 75   | 85   |
-```
-
-**Result:**
-
-| Product | EMEA | \| | APAC | \|
-| :------ | ---: | ---: | ---: | ---: |
-|         | Q1   | Q2   | Q1   | Q2   |
-| Alpha   | 100  | 120  | 80   | 90   |
-| Beta    | 95   | 115  | 75   | 85   |
-
-> **Note:** Do not place `|` after the merge marker — write `| A | \|` not `| A | \| |`.
+| Cell merge  | ✓ only \|  |
+| Warp blocks | ✓ only \|  |
 
 ### Vertical merge
 
@@ -107,20 +103,20 @@ Write `\---` in a cell to merge it with the cell above:
 ### Combined merging
 
 ```markdown
-| Region  | Q1   | Q2   |
-| :------ | :--- | :--- |
-| Europe  | 120  | 150  |
-| \---    | 130  | \|
-| Asia    | 200  | 180  |
+| Region  | Q1     | Q2   |
+| :------ | :---   | :--- |
+| Europe  | 120    | 150  |
+| \---    | 130 \| |
+| Asia    | 200    | 180  |
 ```
 
 **Result:**
 
-| Region  | Q1   | Q2   |
-| :------ | :--- | :--- |
-| Europe  | 120  | 150  |
-| \---    | 130  | \|
-| Asia    | 200  | 180  |
+| Region  | Q1     | Q2   |
+| :------ | :---   | :--- |
+| Europe  | 120    | 150  |
+| \---    | 130 \| |
+| Asia    | 200    | 180  |
 
 ## Silent table (layout grid)
 
