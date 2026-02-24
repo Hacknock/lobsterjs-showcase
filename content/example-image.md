@@ -63,8 +63,9 @@ Scales the image to 400 px wide; height is proportional.
 Combine a **silent table** with **warp blocks** to place an image beside text.
 
 ```markdown
-~ | [~img-col]          | [~text-col]             |
+~ |                     |                         |
 ~ | :---                | :---                    |
+~ | [~img-col]          | [~text-col]             |
 
 :::warp img-col
 ![Photo](../images/sample-square.png =240x)
@@ -83,8 +84,9 @@ or multiple columns of mixed content.
 
 **Result:**
 
-~ | [~img-col]  | [~text-col]  |
-~ | :---        | :---         |
+~ |  |  |
+~ | :--- | :--- |
+~ | [~img-col] | [~text-col] |
 
 :::warp img-col
 ![Photo](../images/sample-square.png =240x)
@@ -107,8 +109,9 @@ or multiple columns of mixed content.
 Three images in a 3-column silent table:
 
 ```markdown
-~ | [~g1]       | [~g2]       | [~g3]       |
+~ |             |             |             |
 ~ | :---        | :---        | :---        |
+~ | [~g1]       | [~g2]       | [~g3]       |
 
 :::warp g1
 ![Grid 1](../images/sample-square.png =180x)
@@ -125,8 +128,9 @@ Three images in a 3-column silent table:
 
 **Result:**
 
-~ | [~g1]  | [~g2]  | [~g3]  |
-~ | :---   | :---   | :---   |
+~ |  |  |  |
+~ | :--- | :--- | :--- |
+~ | [~g1] | [~g2] | [~g3] |
 
 :::warp g1
 ![Grid 1](../images/sample-square.png =180x)

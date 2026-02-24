@@ -74,8 +74,9 @@ You can put *any* content here — tables, code, images, even nested warp refere
 Silent tables support any number of columns:
 
 ```markdown
-~ | [~c1]           | [~c2]           | [~c3]          |
+~ |                  |                 |                |
 ~ | :---             | :---            | :---           |
+~ | [~c1]            | [~c2]           | [~c3]          |
 
 :::warp c1
 **Column 1**
@@ -98,8 +99,9 @@ Display
 
 **Result:**
 
-~ | [~c1]  | [~c2]  | [~c3]  |
-~ | :---   | :---   | :---   |
+~ |  |  |  |
+~ | :--- | :--- | :--- |
+~ | [~c1] | [~c2] | [~c3] |
 
 :::warp c1
 **Column 1**
