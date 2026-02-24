@@ -13,6 +13,7 @@ A wiki-style showcase site for [lobster.js](https://github.com/Hacknock/lobsterj
 | Introduction | Quick start, API overview, CSS class reference |
 | Tables | Standard tables, alignment, cell merging, silent layout grids |
 | Warp / Multi-column | `:::warp` blocks, 2-col and 3-col layouts |
+| Images | Image sizing (`=Wx` / `=WxH`), image+text layout, image grid |
 | Footnotes | Reference footnotes and inline footnotes |
 | Code Blocks | Fenced blocks, filename annotation, Prism.js / highlight.js integration |
 | Details / Collapsible | `:::details` blocks with rich content inside |
@@ -27,9 +28,13 @@ content/
   intro.md
   example-table.md
   example-warp.md
+  example-image.md
   example-footnotes.md
   example-code.md
   example-details.md
+images/
+  sample-wide.png
+  sample-square.png
 ```
 
 ## How it works
