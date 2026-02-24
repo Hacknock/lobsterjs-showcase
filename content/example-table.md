@@ -42,7 +42,9 @@ Use `:---`, `:---:`, and `---:` in the separator row:
 
 ### Horizontal merge
 
-Place `\|` after a cell to extend it one column to the right:
+Place `\|` after a cell to extend it one column to the right. Works in both **body rows** and **header rows**.
+
+**Body rows:**
 
 ```markdown
 | Feature     | lobster.js | Standard MD |
@@ -59,6 +61,26 @@ Place `\|` after a cell to extend it one column to the right:
 | Tables      | ✓          | ✓           |
 | Cell merge  | ✓ only     | \|
 | Warp blocks | ✓ only     | \|
+
+**Header rows:**
+
+```markdown
+| Product | EMEA | \| | APAC | \|
+| :------ | ---: | ---: | ---: | ---: |
+|         | Q1   | Q2   | Q1   | Q2   |
+| Alpha   | 100  | 120  | 80   | 90   |
+| Beta    | 95   | 115  | 75   | 85   |
+```
+
+**Result:**
+
+| Product | EMEA | \| | APAC | \|
+| :------ | ---: | ---: | ---: | ---: |
+|         | Q1   | Q2   | Q1   | Q2   |
+| Alpha   | 100  | 120  | 80   | 90   |
+| Beta    | 95   | 115  | 75   | 85   |
+
+> **Note:** Do not place `|` after the merge marker — write `| A | \|` not `| A | \| |`.
 
 ### Vertical merge
 
