@@ -57,13 +57,13 @@ Any lobster.js Markdown is valid inside a `:::details` block:
 ```js
 import { loadMarkdown } from "https://hacknock.github.io/lobsterjs/lobster.js";
 
-const app = document.getElementById("app");
+const content = document.getElementById("content");
 
 // Single file
-await loadMarkdown("./content.md", app);
+await loadMarkdown("./content.md", content);
 
 // Multiple files — merged before parsing
-await loadMarkdown(["./shared.md", "./content.md"], app);
+await loadMarkdown(["./shared.md", "./content.md"], content);
 ```
 
 :::

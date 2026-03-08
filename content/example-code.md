@@ -22,7 +22,7 @@ Use triple backticks. Add a language identifier for syntax highlighting:
 ```js
 import { loadMarkdown } from "https://hacknock.github.io/lobsterjs/lobster.js";
 
-loadMarkdown("./content.md", document.getElementById("app"));
+loadMarkdown("./content.md", document.getElementById("content"));
 ```
 ````
 
@@ -31,7 +31,7 @@ loadMarkdown("./content.md", document.getElementById("app"));
 ```js
 import { loadMarkdown } from "https://hacknock.github.io/lobsterjs/lobster.js";
 
-loadMarkdown("./content.md", document.getElementById("app"));
+loadMarkdown("./content.md", document.getElementById("content"));
 ```
 
 ## Code block with filename
@@ -69,14 +69,14 @@ lobster.js emits a `language-*` class on the `<code>` element — the standard c
 ```
 
 ```js
-loadMarkdown("./content.md", app).then(() => Prism.highlightAll());
+loadMarkdown("./content.md", content).then(() => Prism.highlightAll());
 ```
 
 ### highlight.js
 
 ```js
 import hljs from "highlight.js";
-loadMarkdown("./content.md", app).then(() => hljs.highlightAll());
+loadMarkdown("./content.md", content).then(() => hljs.highlightAll());
 ```
 
 ## HTML output

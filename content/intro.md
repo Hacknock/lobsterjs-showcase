@@ -15,10 +15,10 @@ Add a single `<script type="module">` to your HTML:
     <link rel="stylesheet" href="your-style.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <div id="content"></div>
     <script type="module">
       import { loadMarkdown } from "https://hacknock.github.io/lobsterjs/lobster.js";
-      loadMarkdown("./content.md", document.getElementById("app"));
+      loadMarkdown("./content.md", document.getElementById("content"));
     </script>
   </body>
 </html>
@@ -46,10 +46,10 @@ Fetches and renders Markdown into a DOM element.
 import { loadMarkdown } from "./lobster.js";
 
 // Single file
-loadMarkdown("./content.md", document.getElementById("app"));
+loadMarkdown("./content.md", document.getElementById("content"));
 
 // Multiple files — merged before parsing
-loadMarkdown(["./shared.md", "./page.md"], document.getElementById("app"));
+loadMarkdown(["./shared.md", "./page.md"], document.getElementById("content"));
 ```
 
 ### `toHTML(markdown)`
